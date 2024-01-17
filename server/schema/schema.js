@@ -1,5 +1,4 @@
 const { query } = require('express');
-const {projects, clients} = require('../sampleData.js')
 const {
     GraphQLObjectType, 
     GraphQLID, 
@@ -7,6 +6,10 @@ const {
     GraphQLSchema,
     GraphQLList
 } = require ('graphql')
+
+//Mongoose models
+const Project  = require ('../models/Project.js')
+const Client = require('../models/Client.js')
 
 //#region Client type
 const ClientType = new GraphQLObjectType ({
@@ -32,10 +35,9 @@ const ProjectType = new GraphQLObjectType ({
         client: {
             type: ClientType,
             resolve(parent,args){
-                return clients.find(client => client.id === parent.clientId)
+                return Clients.findById(parent.id)
             }
         }
-
     })
 });
 //#endregion Project type
@@ -48,7 +50,7 @@ const RootQuery = new GraphQLObjectType({
         clients: {
             type: new GraphQLList(ClientType),
             resolve(parents, args){
-                return clients; 
+                return Client.find(); 
             }
 
         },
@@ -56,7 +58,7 @@ const RootQuery = new GraphQLObjectType({
             type: ClientType,
             args: { id: {type: GraphQLID} }, 
             resolve(parent, args) {
-                return clients.find(client => client.id === args.id);
+                return Client.findById(args.id);
             }
         },
 //#endregion clients
@@ -65,7 +67,8 @@ const RootQuery = new GraphQLObjectType({
         projects: {
             type: new GraphQLList(ProjectType),
             resolve(parents, args){
-                return projects; 
+                // return projects; 
+                return  Project.find()
             }
 
         },
@@ -73,7 +76,7 @@ const RootQuery = new GraphQLObjectType({
             type: ProjectType, 
             args: { id: {type: GraphQLID} }, 
             resolve(parent, args) {
-                return projects.find(project => project.id === args.id);
+                return Project.findById(args.id)
             }
         }
 
