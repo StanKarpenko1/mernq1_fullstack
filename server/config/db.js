@@ -8,6 +8,6 @@ const connectDB = async () => {
         console.error(`Fail to connect DB. Error: ${err.message}`);
     }
 
-};
+};  
 
 module.exports = connectDB
