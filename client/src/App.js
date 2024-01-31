@@ -3,12 +3,12 @@ import React from 'react';
 import Header from './components/Header';
 import { ApolloProvider, ApolloClient, InMemoryCache} from '@apollo/react-hooks';
 import Clients from './components/Clients';
-// import { Query } from 'mongoose';
+import AddClientsModule from './components/AddClientsModal';
 
 const cache = new InMemoryCache({
   typePolicies:{
     Query: {
-      fields: {
+      fields: { 
         clients:{
           merge(existing, incoming){
             return incoming;
@@ -37,6 +37,7 @@ function App() {
       <ApolloProvider client={client}>
       <Header />
       <div className="container">
+         <AddClientsModule />
         <Clients />
       </div>
       </ApolloProvider>

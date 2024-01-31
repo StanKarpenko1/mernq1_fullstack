@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -22,10 +23,10 @@ code {
 }
 
 .btn {
-  font-size: 15px;
+  display: flex;
+  box-shadow: none;
 }
 
-.btn-primary,
 .bg-primary {
   background-color: #df3ca6 !important;
   border: none;
@@ -34,17 +35,60 @@ code {
 .btn-primary:hover {
   background-color: #df3ca6;
   opacity: 0.9;
+  
 }
 
 .btn-secondary {
-  background-color: #7430f9;
+  background-color: #df3ca6;
+  box-shadow: none;
 }
 
 .btn-secondary:hover {
-  background-color: #7430f9;
+  background-color: #df3ca6;
   opacity: 0.9;
+  box-shadow: none;
 }
 
 .icon {
   margin-right: 5px;
+  box-shadow: none;
+}
+
+.btn-custom {
+  border-radius: 10px; /* Rounded corners */
+    outline: none; /* Removes the blue outline */
+    box-shadow: none; /* Optional: Removes the default box-shadow if needed */
+    display: flex; /* Ensures flexbox layout */
+    align-items: center; /* Aligns items vertically */
+    justify-content: center; /* Centers the content horizontally */
+    box-shadow: none;}
+
+.btn-custom .icon {
+  margin-right: 5px; /* Adds spacing between icon and text */
+  box-shadow: none;
+}
+
+/* Align items in center for icon and text */
+.d-flex.align-items-center {
+  align-items: center;
+  box-shadow: none;
+}
+
+.chip-button {
+  border-radius: 25px; /* Gives a rounded, chip-like shape */
+  padding: 5px 15px; /* Adjust padding as needed */
+  box-shadow: none;
+}
+
+.chip-button .icon {
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle; /* Aligns icon vertically */
+  box-shadow: none;
+}
+
+/* Flex container adjustments */
+.chip-button .d-flex {
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
 }
