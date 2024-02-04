@@ -4,6 +4,9 @@ import Header from './components/Header';
 import { ApolloProvider, ApolloClient, InMemoryCache} from '@apollo/react-hooks';
 import Clients from './components/Clients';
 import AddClientsModule from './components/AddClientsModal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 
 const cache = new InMemoryCache({
   typePolicies:{

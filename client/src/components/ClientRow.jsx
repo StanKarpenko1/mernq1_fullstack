@@ -25,7 +25,7 @@ export default function ClientRow({client}) {
             <td>{client.phone}</td>
             <td>
                 <button className="btn btn-danger btn-sm"
-                onClick={deleteClient}>
+                  onClick={deleteClient}>
                 <FaTrash style={{ color: '#8B0000' }} />
                 </button>
             </td>
